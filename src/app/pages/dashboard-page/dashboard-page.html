@@ -1,0 +1,279 @@
+<div class="w-full flex flex-col xl:flex-row gap-6">
+
+  <!-- Left Column: Overview & Product View -->
+  <div class="flex-1 flex flex-col gap-6 min-w-0">
+
+    <!-- Overview Section -->
+    <section class="bg-white/60 rounded-2xl sm:rounded-3xl p-4 sm:p-6 backdrop-blur-sm border border-white/50 shadow-sm shrink-0">
+      <div class="flex items-center justify-between mb-5">
+        <h2 class="text-base sm:text-lg font-bold text-gray-900">Overview</h2>
+        <button class="bg-white border border-gray-200 text-gray-700 text-xs font-medium px-3 py-1.5 rounded-xl flex items-center gap-2 hover:bg-gray-50 shadow-sm transition-all">
+          Last month <i class="fa-solid fa-chevron-down text-[10px] text-gray-400"></i>
+        </button>
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+        <!-- Customers Card -->
+        <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-gray-100/50 flex flex-col justify-between">
+          <div class="flex items-center gap-2 text-gray-600 text-sm font-medium mb-3">
+            <i class="fa-regular fa-user text-xs"></i>
+            <span>Customers</span>
+          </div>
+          <div class="flex items-baseline gap-3">
+            <span class="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight">1,293</span>
+            <span class="inline-flex items-center text-xs font-semibold text-rose-500 bg-rose-50 px-2 py-1 rounded-md">↓ 36.8%</span>
+          </div>
+          <p class="text-xs text-gray-400 mt-2">vs last month</p>
+        </div>
+
+        <!-- Balance Card -->
+        <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-gray-100/50 flex flex-col justify-between">
+          <div class="flex items-center gap-2 text-gray-600 text-sm font-medium mb-3">
+            <i class="fa-regular fa-wallet text-xs"></i>
+            <span>Balance</span>
+          </div>
+          <div class="flex items-baseline gap-3">
+            <span class="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight">256k</span>
+            <span class="inline-flex items-center text-xs font-semibold text-emerald-600 bg-emerald-50 px-2 py-1 rounded-md">↑ 36.8%</span>
+          </div>
+          <p class="text-xs text-gray-400 mt-2">vs last month</p>
+        </div>
+
+      </div>
+
+      <!-- New Customers Avatars Section -->
+      <div class="mt-6 sm:mt-8 pt-4 border-t border-gray-100">
+        <div class="flex items-center justify-between mb-4">
+          <div>
+            <h3 class="text-sm font-bold text-gray-900">857 new customers today!</h3>
+            <p class="text-xs text-gray-400 mt-0.5">Send a welcome message to all new customers.</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-4 sm:gap-6 overflow-x-auto pb-2 no-scrollbar">
+          <div class="flex flex-col items-center gap-2 cursor-pointer group shrink-0">
+            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden border-2 border-transparent group-hover:border-gray-300 transition-all shadow-sm">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&auto=format&fit=crop&q=80" class="w-full h-full object-cover" alt="Gladyce">
+            </div>
+            <span class="text-xs text-gray-600 font-medium">Gladyce</span>
+          </div>
+          <div class="flex flex-col items-center gap-2 cursor-pointer group shrink-0">
+            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden border-2 border-transparent group-hover:border-gray-300 transition-all shadow-sm">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&auto=format&fit=crop&q=80" class="w-full h-full object-cover" alt="Elbert">
+            </div>
+            <span class="text-xs text-gray-600 font-medium">Elbert</span>
+          </div>
+          <div class="flex flex-col items-center gap-2 cursor-pointer group shrink-0">
+            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden border-2 border-transparent group-hover:border-gray-300 transition-all shadow-sm">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=120&auto=format&fit=crop&q=80" class="w-full h-full object-cover" alt="Dash">
+            </div>
+            <span class="text-xs text-gray-600 font-medium">Dash</span>
+          </div>
+          <div class="flex flex-col items-center gap-2 cursor-pointer group shrink-0">
+            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden border-2 border-transparent group-hover:border-gray-300 transition-all shadow-sm">
+              <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=120&auto=format&fit=crop&q=80" class="w-full h-full object-cover" alt="Joyce">
+            </div>
+            <span class="text-xs text-gray-600 font-medium">Joyce</span>
+          </div>
+          <div class="flex flex-col items-center gap-2 cursor-pointer group shrink-0">
+            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden border-2 border-transparent group-hover:border-gray-300 transition-all shadow-sm">
+              <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=120&auto=format&fit=crop&q=80" class="w-full h-full object-cover" alt="Marina">
+            </div>
+            <span class="text-xs text-gray-600 font-medium">Marina</span>
+          </div>
+          <div class="flex flex-col items-center gap-2 cursor-pointer group shrink-0">
+            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full border border-gray-200 bg-white flex items-center justify-center text-gray-600 group-hover:border-gray-400 group-hover:text-black transition-all shadow-sm">
+              <i class="fa-solid fa-arrow-right text-sm"></i>
+            </div>
+            <span class="text-xs text-gray-600 font-medium">View all</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product View Section -->
+    <section class="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-sm flex flex-col justify-between relative min-h-[280px] overflow-hidden shrink-0 flex-1">
+      <div class="flex items-center justify-between">
+        <h2 class="text-base sm:text-lg font-bold text-gray-900">Product view</h2>
+        <button class="bg-gray-50 border border-gray-200 text-gray-700 text-xs font-medium px-3 py-1.5 rounded-xl flex items-center gap-2 hover:bg-gray-100 transition-all">
+          Last 7 days <i class="fa-solid fa-chevron-down text-[10px] text-gray-400"></i>
+        </button>
+      </div>
+
+      <div class="absolute left-4 sm:left-6 bottom-4 sm:bottom-6 z-0">
+        <span class="text-3xl sm:text-5xl font-extrabold text-gray-200/80 tracking-tight">$10.2m</span>
+      </div>
+
+      <div class="flex items-end justify-end h-36 sm:h-44 gap-2 sm:gap-4 pr-1 sm:pr-2 z-10 pt-8">
+        <div class="w-6 sm:w-9 bg-gray-100 hover:bg-gray-200 transition-all rounded-lg h-[45%] cursor-pointer" title="Mon"></div>
+        <div class="w-6 sm:w-9 bg-gray-100 hover:bg-gray-200 transition-all rounded-lg h-[70%] cursor-pointer" title="Tue"></div>
+
+        <!-- Highlighted Bar -->
+        <div class="relative w-6 sm:w-9 bg-gradient-to-t from-emerald-100 via-emerald-400 to-emerald-500 rounded-lg h-[90%] flex flex-col items-center justify-start pt-2 cursor-pointer shadow-md">
+          <div class="absolute -top-9 sm:-top-10 bg-black text-white text-[10px] sm:text-[11px] font-semibold px-2 py-0.5 rounded-md flex flex-col items-center whitespace-nowrap shadow-lg">
+            2.2m
+            <div class="w-2 h-2 bg-black rotate-45 -mb-1"></div>
+          </div>
+          <div class="w-2 sm:w-2.5 h-2 sm:h-2.5 bg-white rounded-full border-2 border-emerald-500 shadow"></div>
+          <div class="absolute top-10 sm:top-12 left-1/2 -translate-x-1/2 text-white/90 drop-shadow">
+            <i class="fa-solid fa-hand-pointer text-xs sm:text-sm"></i>
+          </div>
+        </div>
+
+        <div class="w-6 sm:w-9 bg-gray-100 hover:bg-gray-200 transition-all rounded-lg h-[60%] cursor-pointer" title="Thu"></div>
+        <div class="w-6 sm:w-9 bg-gray-100 hover:bg-gray-200 transition-all rounded-lg h-[35%] cursor-pointer" title="Fri"></div>
+        <div class="w-6 sm:w-9 bg-gray-100 hover:bg-gray-200 transition-all rounded-lg h-[80%] cursor-pointer" title="Sat"></div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Right Sidebar Column: Popular Products & Comments -->
+  <aside class="w-full xl:w-80 flex flex-col md:flex-row xl:flex-col gap-6 shrink-0">
+
+    <!-- Popular Products Card -->
+    <div class="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-5 shadow-sm flex-1 flex flex-col justify-between">
+      <div>
+        <h2 class="text-base font-bold text-gray-900 mb-4">Popular products</h2>
+        <div class="space-y-4 md:h-76.25 overflow-y-auto">
+
+          <!-- Item 1 -->
+          <div class="flex items-center justify-between gap-2">
+            <div class="flex items-center gap-3 min-w-0">
+              <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=100&auto=format&fit=crop&q=80" alt="Crypter UI Kit" class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl object-cover shrink-0">
+              <div class="truncate">
+                <h4 class="text-xs font-bold text-gray-900 leading-tight">Crypter - NFT<br>UI Kit</h4>
+              </div>
+            </div>
+            <div class="text-right shrink-0">
+              <p class="text-xs font-bold text-gray-900">$3,250.00</p>
+              <span class="inline-block mt-0.5 text-[10px] font-semibold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">Active</span>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="flex items-center justify-between gap-2">
+            <div class="flex items-center gap-3 min-w-0">
+              <img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=100&auto=format&fit=crop&q=80" alt="Bento Pro" class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl object-cover shrink-0">
+              <div class="truncate">
+                <h4 class="text-xs font-bold text-gray-900 leading-tight">Bento Pro 2.0<br>Illustrations</h4>
+              </div>
+            </div>
+            <div class="text-right shrink-0">
+              <p class="text-xs font-bold text-gray-900">$7,890.00</p>
+              <span class="inline-block mt-0.5 text-[10px] font-semibold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">Active</span>
+            </div>
+          </div>
+<div class="flex items-center justify-between gap-2">
+            <div class="flex items-center gap-3 min-w-0">
+              <img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=100&auto=format&fit=crop&q=80" alt="Bento Pro" class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl object-cover shrink-0">
+              <div class="truncate">
+                <h4 class="text-xs font-bold text-gray-900 leading-tight">Bento Pro 2.0<br>Illustrations</h4>
+              </div>
+            </div>
+            <div class="text-right shrink-0">
+              <p class="text-xs font-bold text-gray-900">$7,890.00</p>
+              <span class="inline-block mt-0.5 text-[10px] font-semibold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">Active</span>
+            </div>
+          </div>
+<div class="flex items-center justify-between gap-2">
+            <div class="flex items-center gap-3 min-w-0">
+              <img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=100&auto=format&fit=crop&q=80" alt="Bento Pro" class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl object-cover shrink-0">
+              <div class="truncate">
+                <h4 class="text-xs font-bold text-gray-900 leading-tight">Bento Pro 2.0<br>Illustrations</h4>
+              </div>
+            </div>
+            <div class="text-right shrink-0">
+              <p class="text-xs font-bold text-gray-900">$7,890.00</p>
+              <span class="inline-block mt-0.5 text-[10px] font-semibold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">Active</span>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="flex items-center justify-between gap-2">
+            <div class="flex items-center gap-3 min-w-0">
+              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=100&auto=format&fit=crop&q=80" alt="Fleet kit" class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl object-cover shrink-0">
+              <div class="truncate">
+                <h4 class="text-xs font-bold text-gray-900 leading-tight">Fleet - travel<br>shopping kit</h4>
+              </div>
+            </div>
+            <div class="text-right shrink-0">
+              <p class="text-xs font-bold text-gray-900">$1,500.00</p>
+              <span class="inline-block mt-0.5 text-[10px] font-semibold text-rose-500 bg-rose-50 px-2 py-0.5 rounded-full">Offline</span>
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="flex items-center justify-between gap-2">
+            <div class="flex items-center gap-3 min-w-0">
+              <img src="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=100&auto=format&fit=crop&q=80" alt="SimpleSocial UI" class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl object-cover shrink-0">
+              <div class="truncate">
+                <h4 class="text-xs font-bold text-gray-900 leading-tight">SimpleSocial UI<br>Design Kit</h4>
+              </div>
+            </div>
+            <div class="text-right shrink-0">
+              <p class="text-xs font-bold text-gray-900">$9,999.99</p>
+              <span class="inline-block mt-0.5 text-[10px] font-semibold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">Active</span>
+            </div>
+          </div>
+
+          <!-- Item 5 -->
+          <div class="flex items-center justify-between gap-2">
+            <div class="flex items-center gap-3 min-w-0">
+              <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=100&auto=format&fit=crop&q=80" alt="Bento Pro vol.2" class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl object-cover shrink-0">
+              <div class="truncate">
+                <h4 class="text-xs font-bold text-gray-900 leading-tight">Bento Pro<br>vol. 2</h4>
+              </div>
+            </div>
+            <div class="text-right shrink-0">
+              <p class="text-xs font-bold text-gray-900">$4,750.00</p>
+              <span class="inline-block mt-0.5 text-[10px] font-semibold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">Active</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <button class="w-full mt-6 py-2.5 border border-gray-200 rounded-full text-xs font-semibold text-gray-700 hover:bg-gray-50 transition-colors">
+        All products
+      </button>
+    </div>
+
+    <!-- Comments Card -->
+    <div class="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-5 shadow-sm flex-1 flex flex-col">
+      <h2 class="text-base font-bold text-gray-900 mb-4">Comments</h2>
+      <div class="space-y-4">
+
+        <!-- Active Comment -->
+        <div class="flex items-start gap-3">
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&auto=format&fit=crop&q=80" alt="Joyce" class="w-8 h-8 rounded-full object-cover shrink-0">
+          <div>
+            <p class="text-xs text-gray-900 font-medium">
+              <span class="font-bold">Joyce</span> on <span class="font-bold">Bento Pro 2.0</span>
+            </p>
+            <p class="text-[10px] text-gray-400 mt-0.5">09:00 AM</p>
+            <p class="text-xs text-gray-500 mt-2 leading-relaxed">
+              Great work! When HTML version will be available? ⚡
+            </p>
+          </div>
+        </div>
+
+        <!-- Faded Comment -->
+        <div class="flex items-start gap-3 opacity-30">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&auto=format&fit=crop&q=80" alt="Gladyce" class="w-8 h-8 rounded-full object-cover shrink-0">
+          <div>
+            <p class="text-xs text-gray-900 font-medium">
+              <span class="font-bold">Gladyce</span> on <span class="font-bold">Food Delivery App</span>
+            </p>
+            <p class="text-[10px] text-gray-400 mt-0.5">09:00 AM</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </aside>
+
+</div>

@@ -1,0 +1,11 @@
+.action-drop-down{
+  transition: height 0.15s;
+  height: 0px;
+  overflow: hidden;
+  /*width: 0px;*/
+}
+
+.tbn-action :hover + .action-drop-down{
+  height: 120px
+
+}
