@@ -1,0 +1,300 @@
+
+
+
+
+
+<div
+  (click)="ut.stopPropagation($event)"
+  class="relative bg-white transition-[width,max-width] duration-300 ease-in-out rounded-xl shadow-2xl w-full max-w-lg max-h-[88vh] flex flex-col z-[200] overflow-hidden border border-gray-100"
+>
+  <!-- Loading Overlay -->
+<!--  @if(productService?.isModifying?.()){-->
+<!--    <div class="absolute inset-0 flex items-center justify-center bg-white/75 backdrop-blur-[2px] z-50">-->
+<!--      <div class="w-8 h-8 border-3 border-blue-200 border-t-blue-600 rounded-full animate-spin"></div>-->
+<!--    </div>-->
+<!--  }-->
+
+  <!-- Header -->
+  <div class="px-5 py-3.5 border-b border-gray-100 flex items-center justify-between shrink-0 bg-gray-50/50">
+    <div class="flex items-center gap-2">
+      <span class="w-2 h-2 rounded-full bg-blue-600"></span>
+      <h2 class="text-sm font-semibold text-gray-800 tracking-tight">
+        {{ product._id ? 'Update Product' : 'Add New Product' }}
+      </h2>
+    </div>
+    <button
+      type="button"
+      (click)="emitCancel()"
+      aria-label="Close modal"
+      class="text-gray-400 hover:text-gray-600 p-1 rounded-md hover:bg-gray-100 transition-colors"
+    >
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Form Body -->
+  <form class="flex-1 overflow-y-auto p-4 space-y-3 text-xs text-gray-700">
+
+    <!-- Row 1: Title & Category -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <div>
+        <label for="title" class="block font-medium text-gray-700 mb-1">
+          Product Title
+        </label>
+        <input
+          id="title"
+          name="title"
+          type="text"
+          [(ngModel)]="product.title"
+          placeholder="e.g. Cotton T-Shirt"
+          class="w-full px-2.5 py-1.5 text-xs text-gray-800 border border-gray-300 rounded-md focus:outline-none focus:ring-1.5 focus:ring-blue-500 focus:border-blue-500 transition-all placeholder:text-gray-400"
+        />
+      </div>
+
+      <div>
+        <label for="category" class="block font-medium text-gray-700 mb-1">
+          Category
+        </label>
+        <select
+          id="category"
+          name="category"
+          [(ngModel)]="product.category"
+          class="w-full px-2.5 py-1.5 text-xs text-gray-800 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-1.5 focus:ring-blue-500 focus:border-blue-500 transition-all"
+        >
+          <option value="">Select category</option>
+          @for(category of cService.getCategories(); track category._id){
+            <option [selected]="category.name===product.category" [value]="category._id">{{ category.name }}</option>
+          }
+        </select>
+      </div>
+    </div>
+
+    <!-- Row 2: Price & Image URL -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <div>
+        <label for="image" class="block font-medium text-gray-700 mb-1">
+          Product Image
+        </label>
+
+        <div class="flex items-center gap-2">
+          <input
+            id="image"
+            name="image"
+            type="file"
+            accept="image/*"
+            (change)="onImageSelected($event)"
+            class="flex-1 w-full px-2.5 py-1.5 text-xs text-gray-600
+             border border-gray-300 rounded-md
+             file:mr-2 file:px-2 file:py-1
+             file:border-0 file:rounded file:bg-blue-50
+             file:text-blue-600 file:text-xs
+             hover:file:bg-blue-100
+             focus:outline-none focus:ring-1 focus:ring-blue-500"
+          />
+
+          @if(imagePreview()){
+            <img
+              [src]="imagePreview()"
+              alt="Product image preview"
+              class="w-10 h-10 object-cover rounded-md border border-gray-200 shrink-0"
+            />
+          }
+          @else if(product.imagePath || !product._id){
+              <img [src]="product.imagePath" alt="Product thumbnail preview" class="w-10 h-10 object-cover rounded-md border border-gray-200 shrink-0" />
+          }
+        </div>
+
+        @if(imageFile){
+          <p class="mt-1 text-[10px] text-gray-400 truncate">
+            {{ imageFile.name }}
+          </p>
+        }
+      </div>
+
+      <div>
+        <label for="image" class="block font-medium text-gray-700 mb-1">
+          Image URL
+        </label>
+        <div class="flex gap-2">
+<!--          <input-->
+<!--            id="image"-->
+<!--            name="image"-->
+<!--            type="text"-->
+<!--            [(ngModel)]="product.imagePath"-->
+<!--            placeholder="https://..."-->
+<!--            class="flex-1 px-2.5 py-1.5 text-xs text-gray-800 border border-gray-300 rounded-md focus:outline-none focus:ring-1.5 focus:ring-blue-500 focus:border-blue-500 transition-all placeholder:text-gray-400"-->
+<!--          />-->
+<!--          @if(product.imagePath){-->
+<!--            <img [src]="product.imagePath" alt="Product thumbnail preview" class="w-7 h-7 object-cover rounded border border-gray-200 shrink-0" />-->
+<!--          }-->
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 3: Description -->
+    <div>
+      <label for="description" class="block font-medium text-gray-700 mb-1">
+        Description
+      </label>
+      <textarea
+        id="description"
+        name="description"
+        rows="2"
+        [(ngModel)]="product.description"
+        placeholder="Brief description..."
+        class="w-full px-2.5 py-1.5 text-xs text-gray-800 border border-gray-300 rounded-md focus:outline-none focus:ring-1.5 focus:ring-blue-500 focus:border-blue-500 transition-all resize-none placeholder:text-gray-400"
+      ></textarea>
+    </div>
+
+    <!-- Variants Section -->
+    <div class="pt-2 border-t border-gray-100">
+      <div class="flex items-center justify-between mb-2">
+        <div class="flex items-center gap-1.5">
+          <span class="font-medium text-gray-700">Variants</span>
+          <span class="text-[10px] px-1.5 py-0.5 rounded-full bg-gray-100 text-gray-600 font-medium">
+            {{ product.variants?.length || 0 }}
+          </span>
+        </div>
+
+        <button
+          type="button"
+          (click)="addVariant()"
+          class="inline-flex items-center gap-1 text-[11px] font-medium text-blue-600 hover:text-blue-700 px-2 py-0.5 rounded hover:bg-blue-50 transition-colors"
+        >
+          <span>+</span> Add Variant
+        </button>
+      </div>
+
+      <!-- Variants Column Headings (Acts as Visual Labels for Compact Row Inputs) -->
+      @if(product.variants && product.variants.length > 0){
+        <div class="grid grid-cols-12 gap-2 px-2.5 mb-1 text-[10px] font-medium text-gray-500 uppercase tracking-wider">
+          <span class="col-span-3">Size</span>
+          <span class="col-span-3">Color Name</span>
+          <span class="col-span-3">Color Code</span>
+          <span class="col-span-3">Stock</span>
+        </div>
+      }
+
+      <div class="space-y-1.5">
+        @for(variant of product.variants; track $index; let i = $index){
+          <div class="p-2 bg-gray-50/70 border border-gray-200/80 rounded-md hover:border-gray-300 transition-colors">
+
+            <div class="grid grid-cols-12 gap-2 items-center">
+
+              <!-- Size Input -->
+              <div class="col-span-3">
+                <label [for]="'size-' + i" class="sr-only">Variant {{ i + 1 }} Size</label>
+                <input
+                  [id]="'size-' + i"
+                  [name]="'size-' + i"
+                  type="text"
+                  [(ngModel)]="variant.size"
+                  placeholder="e.g. M"
+                  class="w-full px-2 py-1 text-xs bg-white border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-500"
+                  list="size"
+                />
+                <datalist id="size">
+                  <option value="S">
+                  <option value="M">
+                  <option value="L">
+                  <option value="XL">
+                </datalist>
+              </div>
+
+              <!-- Color Name Input -->
+              <div class="col-span-3">
+                <label [for]="'colorName-' + i" class="sr-only">Variant {{ i + 1 }} Color Name</label>
+                <input
+                  [id]="'colorName-' + i"
+                  [name]="'colorName-' + i"
+                  type="text"
+                  [(ngModel)]="variant.colorName"
+                  placeholder="e.g. Navy"
+                  class="w-full px-2 py-1 text-xs bg-white border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-500"
+                />
+              </div>
+
+              <!-- Color Picker + Hex Input -->
+              <div class="col-span-3 flex items-center gap-1">
+                <label [for]="'colorPicker-' + i" class="sr-only">Variant {{ i + 1 }} Color Picker</label>
+                <input
+                  [id]="'colorPicker-' + i"
+                  [name]="'colorPicker-' + i"
+                  type="color"
+                  [(ngModel)]="variant.colorCode"
+                  class="w-6 h-6 p-0 border border-gray-300 rounded cursor-pointer shrink-0"
+                />
+
+                <label [for]="'colorCodeText-' + i" class="sr-only">Variant {{ i + 1 }} Color Hex Code</label>
+                <input
+                  [id]="'colorCodeText-' + i"
+                  [name]="'colorCodeText-' + i"
+                  type="text"
+                  [(ngModel)]="variant.colorCode"
+                  placeholder="#000"
+                  class="w-full min-w-0 px-1.5 py-1 text-[11px] bg-white border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-500 font-mono"
+                />
+              </div>
+
+              <!-- Stock Input & Remove Button -->
+              <div class="col-span-3 flex items-center gap-1.5">
+                <label [for]="'stock-' + i" class="sr-only">Variant {{ i + 1 }} Stock Quantity</label>
+                <input
+                  [id]="'stock-' + i"
+                  [name]="'stock-' + i"
+                  type="number"
+                  min="0"
+                  [(ngModel)]="variant.stock"
+                  placeholder="0"
+                  class="w-full px-2 py-1 text-xs bg-white border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-500"
+                />
+
+                <button
+                  type="button"
+                  (click)="removeVariant(i)"
+                  [attr.aria-label]="'Remove variant ' + (i + 1)"
+                  title="Remove variant"
+                  class="p-1 text-gray-400 hover:text-red-500 rounded hover:bg-red-50 transition-colors shrink-0"
+                >
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                  </svg>
+                </button>
+              </div>
+
+            </div>
+          </div>
+        }
+
+        <!-- Empty State -->
+        @if(!product.variants || product.variants.length === 0){
+          <div class="text-center py-3 border border-dashed border-gray-200 rounded-md bg-gray-50/50">
+            <p class="text-[11px] text-gray-500">No variants added yet</p>
+          </div>
+        }
+      </div>
+    </div>
+
+  </form>
+
+  <!-- Sticky Footer -->
+  <div class="px-4 py-3 bg-gray-50/80 border-t border-gray-100 flex items-center justify-end gap-2 shrink-0">
+    <button
+      (click)="emitCancel()"
+      type="button"
+      class="px-3 py-1.5 text-xs font-medium text-gray-600 bg-white border border-gray-200 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-1 focus:ring-gray-300 transition-colors"
+    >
+      Cancel
+    </button>
+
+    <button
+      (click)="ut.stopPrevent($event); emitSave()"
+      type="submit"
+      class="px-3.5 py-1.5 text-xs font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500/50 shadow-sm transition-all"
+    >
+      {{ product._id ? 'Update' : 'Save' }}
+    </button>
+  </div>
+</div>

@@ -1,1 +1,415 @@
-<p>user-page works!</p>
+<div class="w-full h-full min-h-[500px] flex flex-col gap-5 font-['Inter'] text-gray-900">
+  <!-- Header / Stats Section -->
+  <section
+    class="w-full shrink-0 bg-white border border-gray-100 rounded-2xl p-5 sm:p-6 shadow-[0_2px_10px_rgba(0,0,0,0.03)]"
+  >
+    <!-- Stats Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div class="bg-[#f3f5f7] p-4 rounded-2xl">
+        <div class="flex items-center justify-between mb-1">
+          <h2 class="text-lg font-semibold tracking-tight text-gray-900">Total Users</h2>
+          <span class="px-2.5 py-0.5 rounded-md bg-white text-slate-700 text-sm font-bold shadow-sm">
+            1
+          </span>
+        </div>
+        <p class="text-xs text-gray-600">Manage system users and permissions.</p>
+      </div>
+
+      <div class="bg-[#f3f5f7] p-4 rounded-2xl">
+        <div class="flex items-center justify-between mb-1">
+          <h2 class="text-lg font-semibold tracking-tight text-gray-900">Active Users</h2>
+          <span class="px-2.5 py-0.5 rounded-md bg-white text-emerald-700 text-sm font-bold shadow-sm">
+            2
+          </span>
+        </div>
+        <p class="text-xs text-gray-600">Currently active accounts in system.</p>
+      </div>
+
+      <div class="bg-[#f3f5f7] p-4 rounded-2xl">
+        <div class="flex items-center justify-between mb-1">
+          <h2 class="text-lg font-semibold tracking-tight text-gray-900">Inactive Users</h2>
+          <span class="px-2.5 py-0.5 rounded-md bg-white text-rose-700 text-sm font-bold shadow-sm">
+            3
+          </span>
+        </div>
+        <p class="text-xs text-gray-600">Disabled or pending user accounts.</p>
+      </div>
+    </div>
+
+    <!-- Actions Bar (Search, Filters & Add Button) -->
+    <div class="mt-5 pt-4 border-t border-gray-100 flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4">
+      <!-- Left side: Search & Filters -->
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+        <!-- Search -->
+        <div class="relative w-full sm:w-64">
+          <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-xs"></i>
+          <input
+            type="text"
+            placeholder="Search users..."
+            class="w-full h-10 bg-gray-50 border border-gray-200 pl-10 pr-4 rounded-xl text-sm text-gray-700 placeholder:text-gray-400 outline-none transition-all focus:bg-white focus:border-gray-400 focus:ring-2 focus:ring-gray-100"
+          />
+        </div>
+
+        <!-- Filter: Status -->
+        <div class="relative group/filter-status">
+          <button
+            type="button"
+            class="h-10 px-3.5 rounded-xl border border-gray-200 bg-gray-50 text-gray-700 hover:bg-white text-xs font-medium flex items-center justify-between gap-3 transition-all w-full sm:w-auto"
+          >
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-filter text-gray-400 text-[10px]"></i>
+              <span>Status: All</span>
+            </div>
+            <i class="fa-solid fa-chevron-down text-[9px] text-gray-400 transition-transform duration-200 group-hover/filter-status:rotate-180"></i>
+          </button>
+
+          <!-- Status Dropdown Menu -->
+          <div
+            class="absolute left-0 sm:left-auto sm:right-0 top-full mt-1.5 w-40 bg-white border border-gray-100 rounded-xl shadow-xl p-1.5 z-30 opacity-0 invisible translate-y-1 group-hover/filter-status:opacity-100 group-hover/filter-status:visible group-hover/filter-status:translate-y-0 transition-all duration-200"
+          >
+            <button
+              type="button"
+              class="w-full px-3 py-2 rounded-lg text-left text-xs text-gray-700 hover:bg-gray-50 transition-colors"
+            >
+              All Status
+            </button>
+            <button
+              type="button"
+              class="w-full px-3 py-2 rounded-lg text-left text-xs text-emerald-600 hover:bg-emerald-50 transition-colors"
+            >
+              Active Only
+            </button>
+            <button
+              type="button"
+              class="w-full px-3 py-2 rounded-lg text-left text-xs text-rose-600 hover:bg-rose-50 transition-colors"
+            >
+              Inactive Only
+            </button>
+          </div>
+        </div>
+
+        <!-- Filter: Role -->
+        <div class="relative group/filter-role">
+          <button
+            type="button"
+            class="h-10 px-3.5 rounded-xl border border-gray-200 bg-gray-50 text-gray-700 hover:bg-white text-xs font-medium flex items-center justify-between gap-3 transition-all w-full sm:w-auto"
+          >
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-user-shield text-gray-400 text-[10px]"></i>
+              <span>Role: All</span>
+            </div>
+            <i class="fa-solid fa-chevron-down text-[9px] text-gray-400 transition-transform duration-200 group-hover/filter-role:rotate-180"></i>
+          </button>
+
+          <!-- Role Dropdown Menu -->
+          <div
+            class="absolute left-0 sm:left-auto sm:right-0 top-full mt-1.5 w-40 bg-white border border-gray-100 rounded-xl shadow-xl p-1.5 z-30 opacity-0 invisible translate-y-1 group-hover/filter-role:opacity-100 group-hover/filter-role:visible group-hover/filter-role:translate-y-0 transition-all duration-200"
+          >
+            <button
+              type="button"
+              class="w-full px-3 py-2 rounded-lg text-left text-xs text-gray-700 hover:bg-gray-50 transition-colors"
+            >
+              All Roles
+            </button>
+            <button
+              type="button"
+              class="w-full px-3 py-2 rounded-lg text-left text-xs text-gray-700 hover:bg-gray-50 transition-colors"
+            >
+              Admin
+            </button>
+            <button
+              type="button"
+              class="w-full px-3 py-2 rounded-lg text-left text-xs text-gray-700 hover:bg-gray-50 transition-colors"
+            >
+              User
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add Button -->
+      <button
+        (click)="openForm()"
+        type="button"
+        class="w-full lg:w-auto h-10 px-4 rounded-xl bg-gray-900 hover:bg-black text-white text-sm font-medium flex items-center justify-center gap-2 transition-all shadow-sm hover:shadow-md active:scale-[0.98]"
+      >
+        <i class="fa-solid fa-plus text-xs"></i>
+        <span>Add User</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Table Card -->
+  <section
+    class="w-full flex-1 min-h-0 bg-white border border-gray-100 rounded-2xl shadow-[0_2px_10px_rgba(0,0,0,0.03)] overflow-hidden flex flex-col"
+  >
+    <!-- Table Area -->
+    <div class="flex-1 min-h-0 overflow-auto">
+      <table class="w-full text-left border-collapse">
+        <!-- Table Head -->
+        <thead class="sticky top-0 z-20">
+        <tr class="bg-gray-50/95 border-b border-gray-100 text-[11px] text-gray-400 uppercase tracking-wider backdrop-blur-md">
+          <th class="px-6 py-4 font-semibold">No</th>
+          <th class="px-4 py-4 font-semibold">Id</th>
+          <th class="px-4 py-4 font-semibold">Name</th>
+          <th class="px-4 py-4 font-semibold">Email</th>
+          <th class="px-4 py-4 font-semibold">Role</th>
+          <th class="px-4 py-4 font-semibold">Status</th>
+          <th class="px-4 py-4 font-semibold">Created By</th>
+          <th class="px-4 py-4 font-semibold">Created Via</th>
+          <th class="px-4 py-4 font-semibold">Created At</th>
+          <th class="px-4 py-4 font-semibold">Updated At</th>
+          <th class="px-6 py-4 font-semibold text-right">Actions</th>
+        </tr>
+        </thead>
+
+        <!-- Table Body -->
+        <tbody class="divide-y divide-gray-100">
+          @for (item of userService.getUsers(); track item._id; let index = $index) {
+            <tr class="group hover:bg-gray-50/60 transition-colors">
+              <!-- No -->
+              <td class="px-6 py-4">
+                <span class="text-sm font-semibold text-gray-900">{{ index + 1 }}</span>
+              </td>
+
+              <!-- _id -->
+              <td class="px-4 py-4">
+                <span class="text-xs font-medium text-gray-500 font-mono">{{ item._id | paddTxt }}</span>
+              </td>
+
+              <!-- Name -->
+              <td class="px-4 py-4">
+                <span class="text-sm font-semibold text-gray-900">{{ item.name }}</span>
+              </td>
+
+              <!-- Email -->
+              <td class="px-4 py-4">
+                <span class="text-sm text-gray-600">{{ item.email }}</span>
+              </td>
+
+              <!-- Role -->
+              <td class="px-4 py-4">
+                <span class="inline-flex px-2 py-0.5 rounded-md bg-gray-100 text-gray-700 text-xs font-medium">
+                  {{ item.role }}
+                </span>
+              </td>
+
+              <!-- Status -->
+              <td class="px-4 py-4">
+                @if (item.isActive) {
+                  <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-600 text-[11px] font-semibold">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                    Active
+                  </span>
+                } @else {
+                  <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-red-50 text-red-600 text-[11px] font-semibold">
+                    <span class="w-1.5 h-1.5 rounded-full bg-red-500"></span>
+                    Inactive
+                  </span>
+                }
+              </td>
+
+              <!-- Created By -->
+              <td class="px-4 py-4">
+                <span class="text-sm text-gray-600">{{ item.createdBy || '...' }}</span>
+              </td>
+
+              <!-- Created Via -->
+              <td class="px-4 py-4">
+                <span class="text-sm text-gray-600">{{ item.createdVia || 'register' }}</span>
+              </td>
+
+              <!-- Created At -->
+              <td class="px-4 py-4">
+                <span class="text-xs text-gray-600">{{ item.createdAt.toString() | datFormat }}</span>
+              </td>
+
+              <!-- Updated At -->
+              <td class="px-4 py-4">
+                <span class="text-xs text-gray-600">{{ item.updatedAt.toString() | datFormat }}</span>
+              </td>
+
+              <!-- Actions -->
+              <td class="px-6 py-4">
+                <div class="relative flex justify-end group/dropdown">
+                  <button
+                    type="button"
+                    class="h-9 px-3 rounded-lg border border-gray-200 bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900 text-xs font-medium flex items-center gap-2 transition-all shadow-sm"
+                  >
+                    <span>Actions</span>
+                    <i class="fa-solid fa-chevron-down text-[9px] transition-transform duration-200 group-hover/dropdown:rotate-180"></i>
+                  </button>
+
+                  <!-- Dropdown Menu -->
+                  <div
+                    class="absolute right-0 top-full mt-1.5 w-44 bg-white border border-gray-100 rounded-xl shadow-xl p-1.5 z-30 opacity-0 invisible translate-y-1 group-hover/dropdown:opacity-100 group-hover/dropdown:visible group-hover/dropdown:translate-y-0 transition-all duration-200"
+                  >
+                    <!-- View -->
+                    <button
+                      type="button"
+                      class="w-full px-3 py-2 rounded-lg flex items-center gap-3 text-xs text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors"
+                    >
+                      <i class="fa-regular fa-eye w-4 text-center"></i>
+                      <span>View</span>
+                    </button>
+
+                    <!-- Edit -->
+                    <button
+                      (click)="openUpdateForm(item)"
+                      type="button"
+                      class="w-full px-3 py-2 rounded-lg flex items-center gap-3 text-xs text-gray-600 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                    >
+                      <i class="fa-regular fa-pen-to-square w-4 text-center"></i>
+                      <span>Edit</span>
+                    </button>
+
+                    <!-- Reset Password -->
+                    <button
+                      (click)="openResetPasswordForm(item._id)"
+                      type="button"
+                      class="w-full px-3 py-2 rounded-lg flex items-center gap-3 text-xs text-gray-600 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                    >
+                      <i class="fa-solid fa-key w-4 text-center"></i>
+                      <span>Update Password</span>
+                    </button>
+
+                    <!-- Divider -->
+                    <div class="my-1 border-t border-gray-100"></div>
+
+                    <!-- Delete -->
+                    <button
+                      (click)="onDelete(item._id)"
+                      type="button"
+                      class="w-full px-3 py-2 rounded-lg flex items-center gap-3 text-xs text-rose-500 hover:bg-rose-50 hover:text-rose-600 transition-colors"
+                    >
+                      <i class="fa-regular fa-trash-can w-4 text-center"></i>
+                      <span>Delete</span>
+                    </button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Pagination -->
+    <div
+      class="shrink-0 px-6 py-4 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-4 bg-white"
+    >
+      <p class="text-xs text-gray-500">
+        Showing
+        <span class="font-semibold text-gray-700">1–4</span>
+        of
+        <span class="font-semibold text-gray-700">12</span>
+        users
+      </p>
+
+      <div class="flex items-center gap-1.5">
+        <button
+          disabled
+          class="w-8 h-8 rounded-lg border border-gray-200 text-gray-300 flex items-center justify-center cursor-not-allowed"
+        >
+          <i class="fa-solid fa-chevron-left text-[10px]"></i>
+        </button>
+
+        <button
+          class="w-8 h-8 rounded-lg bg-gray-900 text-white text-xs font-semibold flex items-center justify-center shadow-sm"
+        >
+          1
+        </button>
+
+        <button
+          class="w-8 h-8 rounded-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900 text-xs font-medium flex items-center justify-center transition-all"
+        >
+          2
+        </button>
+
+        <button
+          class="w-8 h-8 rounded-lg border border-gray-200 text-gray-700 hover:border-gray-400 hover:text-gray-900 flex items-center justify-center transition-all"
+        >
+          <i class="fa-solid fa-chevron-right text-[10px]"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Add / Edit Form Modal -->
+@if (isOpenForm()) {
+  <div
+    (click)="closeForm()"
+    class="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm p-4"
+  >
+    <div (click)="$event.stopPropagation()" class="w-full max-w-lg flex justify-center">
+      <app-user-form
+        (onCancel)="closeForm()"
+        (onSave)="save()"
+        [User]="formUser"
+        [message]="errorMessage()"
+      ></app-user-form>
+    </div>
+  </div>
+}
+
+<!-- Reset Password Modal -->
+@if (openResetPW()) {
+  <div
+    (click)="closeResetPasswordForm()"
+    class="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm p-4"
+  >
+    <div
+      (click)="$event.stopPropagation()"
+      class="relative bg-white rounded-2xl shadow-2xl w-full max-w-sm overflow-hidden flex flex-col border border-gray-100"
+    >
+      <!-- Loading Overlay -->
+      @if (userService.isModifying()) {
+        <div class="absolute inset-0 flex items-center justify-center bg-white/70 backdrop-blur-[2px] z-10">
+          <div class="w-10 h-10 border-4 border-slate-200 border-t-slate-800 rounded-full animate-spin"></div>
+        </div>
+      }
+
+      <div class="pt-6 pb-2 px-6">
+        <h2 class="text-lg font-semibold text-gray-900 text-center">Update Password</h2>
+      </div>
+
+      <form class="p-6 space-y-4">
+        <div class="space-y-1">
+          <label for="pw" class="block text-xs font-semibold text-gray-600">New Password</label>
+          <input
+            [(ngModel)]="updatePW"
+            id="pw"
+            name="password"
+            type="password"
+            placeholder="Enter secure password"
+            required
+            class="w-full px-3.5 py-2.5 text-sm text-gray-800 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:bg-white focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
+          />
+        </div>
+
+        <!-- Error Message -->
+        <div class="h-5 flex items-center justify-center">
+          <p class="text-xs font-medium text-red-500">{{ resetPwErr() }}</p>
+        </div>
+
+        <div class="pt-2 flex items-center justify-end gap-2.5 border-t border-gray-100">
+          <button
+            (click)="closeResetPasswordForm()"
+            type="button"
+            class="px-4 py-2 text-xs font-medium text-gray-700 bg-white border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors shadow-sm"
+          >
+            Cancel
+          </button>
+          <button
+            (click)="onResetPw()"
+            type="submit"
+            class="px-4 py-2 text-xs font-medium text-white bg-blue-600 rounded-xl hover:bg-blue-700 transition-colors shadow-sm"
+          >
+            Save Password
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+}

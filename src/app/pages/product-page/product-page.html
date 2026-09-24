@@ -1,1 +1,347 @@
-<p>product-page works!</p>
+<div class="w-full h-full min-h-[500px] flex flex-col gap-5 font-['Inter'] text-gray-900">
+  <!-- Header / Stats Section -->
+  <section
+    class="w-full shrink-0 bg-white border border-gray-100 rounded-2xl p-5 sm:p-6 shadow-[0_2px_10px_rgba(0,0,0,0.03)]"
+  >
+    <!-- Stats Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div class="bg-[#f3f5f7] p-4 rounded-2xl">
+        <div class="flex items-center justify-between mb-1">
+          <h2 class="text-lg font-semibold tracking-tight text-gray-900">Total Products</h2>
+          <span
+            class="px-2.5 py-0.5 rounded-md bg-white text-slate-700 text-sm font-bold shadow-sm"
+          >
+            0
+          </span>
+        </div>
+        <p class="text-xs text-gray-600">Manage store inventory and catalog listings.</p>
+      </div>
+
+      <div class="bg-[#f3f5f7] p-4 rounded-2xl">
+        <div class="flex items-center justify-between mb-1">
+          <h2 class="text-lg font-semibold tracking-tight text-gray-900">Active Products</h2>
+          <span
+            class="px-2.5 py-0.5 rounded-md bg-white text-emerald-700 text-sm font-bold shadow-sm"
+          >
+            0
+          </span>
+        </div>
+        <p class="text-xs text-gray-600">Currently visible and available for sale.</p>
+      </div>
+
+      <div class="bg-[#f3f5f7] p-4 rounded-2xl">
+        <div class="flex items-center justify-between mb-1">
+          <h2 class="text-lg font-semibold tracking-tight text-gray-900">Out of Stock</h2>
+          <span class="px-2.5 py-0.5 rounded-md bg-white text-rose-700 text-sm font-bold shadow-sm">
+            0
+          </span>
+        </div>
+        <p class="text-xs text-gray-600">Items requiring inventory replenishment.</p>
+      </div>
+    </div>
+
+    <!-- Actions Bar (Search, Filters & Add Button) -->
+    <div
+      class="mt-5 pt-4 border-t border-gray-100 flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4"
+    >
+      <!-- Left side: Search & Filters -->
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+        <!-- Search Input -->
+        <div class="relative w-full sm:w-64">
+          <i
+            class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-xs"
+          ></i>
+          <input
+            type="text"
+            placeholder="Search products..."
+            class="w-full h-10 bg-gray-50 border border-gray-200 pl-10 pr-4 rounded-xl text-sm text-gray-700 placeholder:text-gray-400 outline-none transition-all focus:bg-white focus:border-gray-400 focus:ring-2 focus:ring-gray-100"
+          />
+        </div>
+
+        <!-- Filter: Status -->
+        <div class="relative group/filter-status">
+          <button
+            type="button"
+            class="h-10 px-3.5 rounded-xl border border-gray-200 bg-gray-50 text-gray-700 hover:bg-white text-xs font-medium flex items-center justify-between gap-3 transition-all w-full sm:w-auto"
+          >
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-filter text-gray-400 text-[10px]"></i>
+              <span>Status: All</span>
+            </div>
+            <i
+              class="fa-solid fa-chevron-down text-[9px] text-gray-400 transition-transform duration-200 group-hover/filter-status:rotate-180"
+            ></i>
+          </button>
+
+          <!-- Status Dropdown Menu -->
+          <div
+            class="absolute left-0 sm:left-auto sm:right-0 top-full mt-1.5 w-40 bg-white border border-gray-100 rounded-xl shadow-xl p-1.5 z-30 opacity-0 invisible translate-y-1 group-hover/filter-status:opacity-100 group-hover/filter-status:visible group-hover/filter-status:translate-y-0 transition-all duration-200"
+          >
+            <button
+              type="button"
+              class="w-full px-3 py-2 rounded-lg text-left text-xs text-gray-700 hover:bg-gray-50 transition-colors"
+            >
+              All Status
+            </button>
+            <button
+              type="button"
+              class="w-full px-3 py-2 rounded-lg text-left text-xs text-gray-700 hover:bg-gray-50 transition-colors"
+            >
+              Active
+            </button>
+            <button
+              type="button"
+              class="w-full px-3 py-2 rounded-lg text-left text-xs text-gray-700 hover:bg-gray-50 transition-colors"
+            >
+              Inactive
+            </button>
+          </div>
+        </div>
+
+        <!-- Filter: Category -->
+        <div class="relative group/filter-category">
+          <button
+            type="button"
+            class="h-10 px-3.5 rounded-xl border border-gray-200 bg-gray-50 text-gray-700 hover:bg-white text-xs font-medium flex items-center justify-between gap-3 transition-all w-full sm:w-auto"
+          >
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-tags text-gray-400 text-[10px]"></i>
+              <span>Category: All</span>
+            </div>
+            <i
+              class="fa-solid fa-chevron-down text-[9px] text-gray-400 transition-transform duration-200 group-hover/filter-category:rotate-180"
+            ></i>
+          </button>
+
+          <!-- Category Dropdown Menu -->
+          <div
+            class="absolute left-0 sm:left-auto sm:right-0 top-full mt-1.5 w-44 bg-white border border-gray-100 rounded-xl shadow-xl p-1.5 z-30 opacity-0 invisible translate-y-1 group-hover/filter-category:opacity-100 group-hover/filter-category:visible group-hover/filter-category:translate-y-0 transition-all duration-200"
+          >
+            <button
+              type="button"
+              class="w-full px-3 py-2 rounded-lg text-left text-xs text-gray-700 hover:bg-gray-50 transition-colors"
+            >
+              All Categories
+            </button>
+            <button
+              type="button"
+              class="w-full px-3 py-2 rounded-lg text-left text-xs text-gray-700 hover:bg-gray-50 transition-colors"
+            >
+              Electronics
+            </button>
+            <button
+              type="button"
+              class="w-full px-3 py-2 rounded-lg text-left text-xs text-gray-700 hover:bg-gray-50 transition-colors"
+            >
+              Clothing
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right side: Add Button -->
+      <button
+        (click)="productService.openForm(null)"
+        type="button"
+        class="w-full lg:w-auto h-10 px-4 rounded-xl bg-gray-900 hover:bg-black text-white text-sm font-medium flex items-center justify-center gap-2 transition-all shadow-sm hover:shadow-md active:scale-[0.98]"
+      >
+        <i class="fa-solid fa-plus text-xs"></i>
+        <span>Add Product</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Table Card -->
+  <section
+    class="w-full flex-1 min-h-0 bg-white border border-gray-100 rounded-2xl shadow-[0_2px_10px_rgba(0,0,0,0.03)] overflow-hidden flex flex-col"
+  >
+    <!-- Table Area -->
+    <div class="flex-1 min-h-0 overflow-auto">
+      <table class="w-full text-left border-collapse">
+        <!-- Table Head -->
+        <thead class="sticky top-0 z-20">
+          <tr
+            class="bg-gray-50/95 border-b border-gray-100 text-[11px] text-gray-400 uppercase tracking-wider backdrop-blur-md"
+          >
+            <th class="px-6 py-4 font-semibold">No</th>
+            <th class="px-6 py-4 font-semibold">Product</th>
+            <th class="px-4 py-4 font-semibold">Category</th>
+            <th class="px-4 py-4 font-semibold">Price</th>
+            <th class="px-4 py-4 font-semibold">Color</th>
+            <th class="px-4 py-4 font-semibold">Stock</th>
+            <th class="px-4 py-4 font-semibold">Status</th>
+            <th class="px-4 py-4 font-semibold">Updated At</th>
+            <th class="px-6 py-4 font-semibold text-right">Actions</th>
+          </tr>
+        </thead>
+
+        <!-- Table Body -->
+        <tbody class="divide-y divide-gray-100">
+          <!-- Static Placeholder Row for UI Preview -->
+          @for (item of productService.getProduct(); let i = $index; track $index) {
+            <tr class="group hover:bg-gray-50/60 transition-colors">
+              <!-- Product Info -->
+              <td class="px-6 py-4">
+                <div class="flex items-center gap-3">
+                  <p>{{i+1}}</p>
+                </div>
+              </td>
+ <td class="px-6 py-4">
+                <div class="flex items-center gap-3">
+                  <div
+                    class="w-10 h-10 rounded-sm border border-gray-200 overflow-hidden flex items-center justify-center"
+                  >
+                    <img class="w-full" src="{{ item.imagePath }}" alt="" />
+                  </div>
+                  <div>
+                    <p class="text-sm font-semibold text-gray-900">{{item.title}}</p>
+                    <p class="text-xs text-gray-400 font-mono">{{item._id?.slice(0, 4)?.padEnd(8, ".")}}</p>
+                  </div>
+                </div>
+              </td>
+
+              <!-- Category -->
+              <td class="px-4 py-4">
+                <span
+                  class="inline-flex px-2 py-0.5 rounded-md bg-gray-100 text-gray-700 text-xs font-medium"
+                >
+                  {{ item.category.name }}
+                </span>
+              </td>
+
+              <!-- Price -->
+              <td class="px-4 py-4">
+                <span class="text-sm font-semibold text-gray-900">{{ item.price }}$</span>
+              </td>
+              <td class="px-4 py-4 grid grid-cols-3 ">
+                @for(v of item.variants;track $index){
+
+                  <span class="block h-[10px] w-[10px] rounded-full " [style]="{'background':v.colorCode}"></span>
+
+                }
+              </td>
+
+              <!-- Stock -->
+              <td class="px-4 py-4">
+                <span class="text-sm font-medium text-gray-700">{{item.totalStock}}</span>
+              </td>
+
+              <!-- Status -->
+              <td class="px-4 py-4">
+                <span
+                  class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-600 text-[11px] font-semibold"
+                >
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                  Active
+                </span>
+              </td>
+
+              <!-- Updated At -->
+              <td class="px-4 py-4">
+                <span class="text-xs text-gray-600">2026-06-06</span>
+              </td>
+
+              <!-- Actions -->
+              <td class="px-6 py-4">
+                <div class="relative flex justify-end group/dropdown">
+                  <button
+                    type="button"
+                    class="h-9 px-3 rounded-lg border border-gray-200 bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900 text-xs font-medium flex items-center gap-2 transition-all shadow-sm"
+                  >
+                    <span>Actions</span>
+                    <i
+                      class="fa-solid fa-chevron-down text-[9px] transition-transform duration-200 group-hover/dropdown:rotate-180"
+                    ></i>
+                  </button>
+
+                  <!-- Dropdown Menu -->
+                  <div
+                    class="absolute right-0 top-full mt-1.5 w-40 bg-white border border-gray-100 rounded-xl shadow-xl p-1.5 z-30 opacity-0 invisible translate-y-1 group-hover/dropdown:opacity-100 group-hover/dropdown:visible group-hover/dropdown:translate-y-0 transition-all duration-200"
+                  >
+                    <button
+                      type="button"
+                      class="w-full px-3 py-2 rounded-lg flex items-center gap-3 text-xs text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors"
+                    >
+                      <i class="fa-regular fa-eye w-4 text-center"></i>
+                      <span>View</span>
+                    </button>
+
+                    <button
+                      (click)="productService.openForm(item)"
+                      type="button"
+                      class="w-full px-3 py-2 rounded-lg flex items-center gap-3 text-xs text-gray-600 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                    >
+                      <i class="fa-regular fa-pen-to-square w-4 text-center"></i>
+                      <span>Edit</span>
+                    </button>
+
+                    <div class="my-1 border-t border-gray-100"></div>
+
+                    <button
+                      (click)="productService.deleteProduct(item._id)"
+                      type="button"
+                      class="w-full px-3 py-2 rounded-lg flex items-center gap-3 text-xs text-rose-500 hover:bg-rose-50 hover:text-rose-600 transition-colors"
+                    >
+                      <i class="fa-regular fa-trash-can w-4 text-center"></i>
+                      <span>Delete</span>
+                    </button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Pagination -->
+    <div
+      class="shrink-0 px-6 py-4 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-4 bg-white"
+    >
+      <p class="text-xs text-gray-500">
+        Showing
+        <span class="font-semibold text-gray-700">1–1</span>
+        of
+        <span class="font-semibold text-gray-700">1</span>
+        products
+      </p>
+
+      <div class="flex items-center gap-1.5">
+        <button
+          disabled
+          class="w-8 h-8 rounded-lg border border-gray-200 text-gray-300 flex items-center justify-center cursor-not-allowed"
+        >
+          <i class="fa-solid fa-chevron-left text-[10px]"></i>
+        </button>
+
+        <button
+          class="w-8 h-8 rounded-lg bg-gray-900 text-white text-xs font-semibold flex items-center justify-center shadow-sm"
+        >
+          1
+        </button>
+
+        <button
+          disabled
+          class="w-8 h-8 rounded-lg border border-gray-200 text-gray-300 flex items-center justify-center cursor-not-allowed"
+        >
+          <i class="fa-solid fa-chevron-right text-[10px]"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+@if (productService.isOpenForm()) {
+  <div
+    (click)="productService.closeForm()"
+    class="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm p-4"
+  >
+    <div (click)="$event.stopPropagation()" class="w-full max-w-lg flex justify-center ">
+      <app-product-form
+        (onCancel)="productService.closeForm()"
+        [product]="{...productService.productForm}"
+      ></app-product-form>
+    </div>
+  </div>
+}

@@ -1,6 +1,7 @@
-import { Component, signal } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { DashboardPage } from './pages/dashboard-page/dashboard-page';
+import { CategoryService } from './services/category-service';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +9,11 @@ import { DashboardPage } from './pages/dashboard-page/dashboard-page';
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
-export class App {}
+export class App implements OnInit {
+  constructor(public cateService: CategoryService) {
+  }
+
+  ngOnInit() {
+    this.cateService.fetchCategories();
+  }
+}

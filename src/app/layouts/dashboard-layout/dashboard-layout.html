@@ -1,0 +1,116 @@
+<div class="bg-[#f3f5f7] w-full h-screen rounded-2xl sm:rounded-[32px] p-4 sm:p-6 shadow-2xl flex flex-col gap-6 relative overflow-hidden font-['Inter'] text-gray-900">
+
+  <!-- Header (Fixed Top) -->
+  <header class="flex items-center justify-between gap-2 sm:gap-4 flex-wrap sm:flex-nowrap shrink-0">
+    <div class="flex items-center gap-3 sm:gap-4 pl-1">
+      <div class="w-9 h-9 sm:w-10 sm:h-10 bg-black rounded-full flex items-center justify-center text-white shrink-0 shadow-sm">
+        <svg class="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="9"/>
+          <path d="M12 3v18M3 12h18"/>
+        </svg>
+      </div>
+      <h1 class="text-xl sm:text-2xl font-bold text-gray-900 tracking-tight">PuNha</h1>
+    </div>
+
+    <div class="flex items-center gap-2 sm:gap-3 ml-auto sm:ml-0">
+      <!-- Comment / Notifications Button -->
+      <button class="w-9 h-9 sm:w-10 sm:h-10 bg-white border border-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:text-black shadow-sm transition-all hidden xs:flex">
+        <i class="fa-regular fa-comment-dots text-xs sm:text-sm"></i>
+      </button>
+
+      <!-- Profile Dropdown -->
+      <div class="relative group/profile">
+        <button
+          type="button"
+          class="flex items-center gap-2.5 px-3.5 py-2 bg-white border border-gray-100 rounded-2xl font-semibold text-slate-800 shadow-sm hover:bg-gray-50 transition-all cursor-pointer"
+        >
+          <span class="text-xs sm:text-sm">{{ pfService.getProfile()?.name || 'Account' }}</span>
+          <i class="fa-solid fa-chevron-down text-[10px] text-gray-400 transition-transform duration-200 group-hover/profile:rotate-180"></i>
+        </button>
+
+        <!-- Logout Dropdown Menu -->
+        <div
+          class="absolute right-0 top-full mt-2 w-36 bg-white border border-gray-100 rounded-xl shadow-xl p-1.5 z-30 opacity-0 invisible translate-y-1 group-hover/profile:opacity-100 group-hover/profile:visible group-hover/profile:translate-y-0 transition-all duration-200"
+        >
+          <button
+            (click)="pfService.logout()"
+            type="button"
+            class="w-full px-3 py-2 rounded-lg flex items-center gap-2.5 text-xs text-rose-500 hover:bg-rose-50 hover:text-rose-600 transition-colors"
+          >
+            <i class="fa-solid fa-right-from-bracket w-4 text-center"></i>
+            <span>Log out</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Body Container -->
+  <div class="flex flex-col lg:flex-row gap-6 relative flex-1 min-h-0">
+
+    <!-- Sidebar -->
+    <aside class="w-full lg:w-56 flex flex-row lg:flex-col justify-between overflow-x-auto lg:overflow-y-auto shrink-0 no-scrollbar gap-2 lg:gap-0">
+      <nav class="flex lg:flex-col gap-1.5 w-full min-w-max lg:min-w-0">
+        <a
+          routerLink=""
+          [routerLinkActiveOptions]="{exact:true}"
+          class="flex items-center gap-3 px-4 py-3 text-gray-500 hover:text-gray-900 font-medium rounded-2xl transition-colors"
+          routerLinkActive="shadow-sm bg-white !text-gray-950 font-semibold"
+        >
+          <i class="fa-solid fa-border-all text-sm w-5 text-center"></i>
+          <span class="text-sm">Dashboard</span>
+        </a>
+
+        <a
+          routerLink="/products"
+          routerLinkActive="shadow-sm bg-white !text-gray-950 font-semibold"
+          class="flex items-center gap-3 px-4 py-3 text-gray-500 hover:text-gray-900 font-medium rounded-2xl transition-colors"
+        >
+          <i class="fa-solid fa-box text-sm w-5 text-center"></i>
+          <span class="text-sm">Products</span>
+        </a>
+
+        <a
+          routerLink="/categories"
+          routerLinkActive="shadow-sm bg-white !text-gray-950 font-semibold"
+          class="flex items-center justify-between gap-4 px-4 py-3 text-gray-500 hover:text-gray-900 font-medium rounded-2xl transition-colors"
+        >
+          <div class="flex items-center gap-3">
+            <i class="fa-solid fa-tags text-sm w-5 text-center"></i>
+            <span class="text-sm">Category</span>
+          </div>
+          <i class="fa-solid fa-chevron-down text-[10px] text-gray-400 hidden lg:block"></i>
+        </a>
+
+        <a
+          routerLink="/users"
+          routerLinkActive="shadow-sm bg-white !text-gray-950 font-semibold"
+          class="flex items-center justify-between gap-4 px-4 py-3 text-gray-500 hover:text-gray-900 font-medium rounded-2xl transition-colors"
+        >
+          <div class="flex items-center gap-3">
+            <i class="fa-regular fa-user text-sm w-5 text-center"></i>
+            <span class="text-sm">User</span>
+          </div>
+          <i class="fa-solid fa-chevron-down text-[10px] text-gray-400 hidden lg:block"></i>
+        </a>
+
+        <a
+          routerLink="/orders"
+          routerLinkActive="shadow-sm bg-white !text-gray-950 font-semibold"
+          class="flex items-center gap-3 px-4 py-3 text-gray-500 hover:text-gray-900 font-medium rounded-2xl transition-colors"
+        >
+          <i class="fa-solid fa-bag-shopping text-sm w-5 text-center"></i>
+          <span class="text-sm">Order</span>
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 min-w-0 flex flex-col h-full overflow-hidden">
+      <section class="bg-white border border-gray-100 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-[0_2px_10px_rgba(0,0,0,0.03)] flex-1 flex flex-col overflow-y-auto">
+        <router-outlet></router-outlet>
+      </section>
+    </main>
+
+  </div>
+</div>

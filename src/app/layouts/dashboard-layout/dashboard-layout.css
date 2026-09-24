@@ -1,0 +1,13 @@
+.logout{
+  transition: height 0.15s ease-in-out;
+  height: 0;
+  /*background: transparent;*/
+  /*border: 4px white solid;*/
+  border: none;
+  overflow: hidden;
+}
+
+.profile:hover .logout {
+  height: 40px;
+  background: white;
+}

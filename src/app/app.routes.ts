@@ -1,35 +1,43 @@
 import { Routes } from '@angular/router';
-import { App } from './app';
-import { DashboardPage } from './pages/dashboard-page/dashboard-page';
-import { ProductPage } from './pages/product-page/product-page';
-import { CategoryPage } from './pages/category-page/category-page';
-import { UserPage } from './pages/user-page/user-page';
-import { OrderPage } from './pages/order-page/order-page';
-
 export const routes: Routes = [
   {
     path: '',
+    loadComponent: async () =>
+      import('./layouts/dashboard-layout/dashboard-layout').then((m) => m.DashboardLayout),
     children: [
       {
         path: '',
-        component: DashboardPage,
+        loadComponent: async () =>
+          import('./pages/dashboard-page/dashboard-page').then((m) => m.DashboardPage),
       },
       {
         path: 'products',
-        component: ProductPage,
+        loadComponent: async () =>
+          import('./pages/product-page/product-page').then((m) => m.ProductPage),
       },
       {
         path: 'categories',
-        component: CategoryPage,
+        loadComponent: async () =>
+          import('./pages/category-page/category-page').then((m) => m.CategoryPage),
       },
       {
         path: 'users',
-        component: UserPage,
+        loadComponent: async () => import('./pages/user-page/user-page').then((m) => m.UserPage),
       },
       {
         path: 'orders',
-        component: OrderPage,
+        loadComponent: async () => import('./pages/order-page/order-page').then((m) => m.OrderPage),
       },
     ],
-  }
+  },
+  {
+    path: 'login',
+    loadComponent: async () =>
+      import('./pages/auths/login-page/login-page').then((m) => m.LoginPage),
+  },
+  {
+    path: 'unauthorize',
+    loadComponent: async () =>
+      import('./pages/un-authorized-page/un-authorized-page').then((m) => m.UnAuthorizedPage),
+  },
 ];
